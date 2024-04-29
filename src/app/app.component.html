@@ -4,13 +4,13 @@
       <mat-card-title>Create Todo</mat-card-title>
     </mat-card-header>
   
-    <form>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
       <table class="table" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="custom-field">
               <mat-label>Todo Name</mat-label>
-              <input matInput />
+              <input matInput formControlName="name" formControlName="name" />
               <mat-error>Required field</mat-error>
             </mat-form-field>
           </td>
@@ -20,14 +20,14 @@
           <td>
             <mat-form-field class="custom-field">
               <mat-label>Todo Description</mat-label>
-              <textarea matInput></textarea>
+              <textarea matInput formControlName="description" formControlName="description" ></textarea>
             </mat-form-field>
           </td>
         </tr>
   
         <tr>
           <td>
-            <button mat-raised-button color="primary" type="button" (click)="openSnackBar()">Submit</button>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
           </td>
         </tr>
       </table>
